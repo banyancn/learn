@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>layout3</title>
+
+    <meta charset="UTF-8">
+    <title>layoutmain</title>
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <style>
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike,  sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio, video{margin:0; padding:0; border:0; font-size:100%; font:inherit; vertical-align:baseline}
+        article, aside, details, figcaption, figure, footer, header, menu, nav, section{display:block}
+        body{line-height:1}
+        ol, ul{list-style:none}
+        blockquote, q{quotes:none}
+        blockquote:before, blockquote:after, q:before, q:after{content:''; content:none}
+        table{border-collapse:collapse; border-spacing:0}
+
+        body{width:1349px ; margin: 0 auto; font-family: "幼圆"}
+        p{margin: 0;padding: 0;}
+        .div1{background-color:darkseagreen;}
+
+        .headerBox{width:1349px;height:440px; position: relative; background:url(images/top-bg.png)}
+        .header{width:960px;height:77px;}
+
+        .advsliderAddbox{width:1349px;height:352px; clear: both;}
+        .slider{width: 1349px;height: 352px;position: relative;}
+        /*ad轮播说明区域*/
+        .addDesBox{width:370px;height:252px;position: relative;float: left; margin:20px 35px; z-index:1011;color: #2aabd2;}
+        .AdDes{width:370px;height:106px;}
+        .AdTOP{font-size:60px;position: relative; z-index: 1011;color:white;padding-bottom:40px;}
+        h3{width:370px;height:60px;position: relative;top:30px; right:60px;z-index: 1012; left: 0; top: 0;font-size:30px; }
+
+        /*banner轮播图片区域*/
+        .banner{ margin:5px auto;  width:395px; height:300px; overflow:hidden; position:relative;}
+        .banner .img{ width:5000px; position:absolute; left:0px; top:0;}
+        .banner .img li{ float:left;}
+        /*区域中下部点状按钮*/
+        .banner .num{ position:absolute; width:100%; bottom:10px; left:0; text-align:center; font-size:0px;}
+        .banner .num li{ width:10px;height:10px; background:#888; border-radius:50%; display:inline-block; margin:0 3px; cursor:pointer;}
+        .banner .num li.on{ background:#F60;}
+
+        /*中部左右箭头按钮*/
+        /* .banner .btn{ height: 30px;width: 30px;line-height:30px;text-align: center;position: absolute;top: 45%;z-index: 1010;left: 1%;display: block;;}*/
+        .banner .btn{ width:30px; height:30px;  position:absolute; top:50%; margin-top:-25px; margin-right:16px;cursor:pointer; text-align:center;
+            line-height:30px;  display:none;}
+        .banner:hover .btn{ display:block;}
+
+        .banner .btn_l{ left:0;}
+        .banner .btn_r{ right:0;}
+
+        /*plugin cir */
+        .cir{clear: both;width:0;height: 0;}
+
+
+        /*findProbox版块盒子， box:3个项目的大盒子，link:内置1个项目小盒子 icon:内置盒子的图片，button:箭头按纽 tip:提示*/
+        .FindProBox{width:1349px;height:900px;position: relative;float: left;  z-index:1011;clear: both;}
+        .FindProBoxTopic{width: 960px;height:45px;margin:20px 199px 0 199px;}
+
+        .FindProBox h2{width: 500px;height:30px;float:left;font-family: "幼圆" ;line-height: 45px;margin-left: 10px;}
+        #moreFrobtn{float: right;width: 200px;height:30px;float:line-height: 35px;margin:15px 5px;text-align: center;color:darkslategray;}
+
+
+        /* box:3个项目的大盒子，link:内置1个项目小盒子 icon:内置盒子的图片，button:箭头按纽 tip:提示*/
+        .FindProBox .box1{background-color:darkseagreen;width: 2000px;height:300px;float:left;margin:10px 199px  ;z-index:1010;}
+        .FindProBox .link{width:250px;height:280px;margin-left: 50px;margin-top: 30px;;float:left; position:relative}
+
+        /*项目图片效果：transition:动画状态及效果，在原始的元素上加linear ease*/
+        .link .icon{display:inline-block;width:100%;height:190px;text-align: center;transition: 0.2s linear;}
+        .link-fro0 .icon{background:url(images/img1.jpg) no-repeat center center;}
+        .link-fro1 .icon{background:url(images/img2.jpg) no-repeat center center;}
+        .link-fro2 .icon{background:url(images/img3.jpg) no-repeat center center;}
+        .link-fro3 .icon{background:url(images/img4.jpg) no-repeat center center;}
+        .link-fro4 .icon{background:url(images/img5.jpg) no-repeat center center;}
+        .link-fro5 .icon{background:url(images/img6.jpg) no-repeat center center;}
+        /* .link .icon:hover{transform: rotate(360deg) scale(1.05);-ms-transform:rotate(5deg) scale(1.05);-webkit-transform: rotate(5deg) scale(1.05);}*/
+        .link .icon:hover{transform: scale(1.05);-ms-transform:scale(1.05);-webkit-transform:  scale(1.05);}
+
+        /*按钮框效果及各框线效果*/
+        .link .button{display: block;width:200px;height: 50px;text-decoration: none;line-height: 50px;color:#2DCB70;font-weight:bolder;border: 2px solid rgba(255,255,255,0.8);
+            padding-left: 15px;margin:0 auto;box-sizing: border-box;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;
+            background: url(images/arrow.png) no-repeat 130px center;position:relative;transition: 0.2s ease; }
+        .link .button:hover{border:2px solid rgba(255,255,255,1);background-position: 140px center}/*按纽箭头的装饰*/
+        .button .line{display:block;position:absolute;background: #fff;}/*按纽四条线的设置*/
+        .button:hover .line{background: #fff;transition: 0.2s linear;}/*r按纽四条线边线的装饰*/
+        .button .line-top{height:2px;width:0;left:-110px;top:-2px;}/*r按纽四条线边线的装饰进入效果*/
+        .button:hover .line-top{width:100%;left:-2px;}
+        .button .line-bottom{height:2px;width:0;right:-110px;bottom:-2px;}
+        .button:hover .line-bottom{width:100%;right:-2px;}
+        .button .line-left{height:0;width:2px;left:-2px;bottom:-110px;}
+        .button:hover .line-left{height:100%;bottom:-2px;}
+        .button .line-right{height:0;width:2px;right:-2px;top:-110px;}
+        .button:hover .line-right{height:100%;top:-2px;}
+        /*tip的设计及装饰  opactity:隐藏*/
+        .box1 .tip{ position: absolute;padding: 0px 50px;width: 200px;height: 55px;line-height: 55px;background: #2DCB70; color: #fff;
+            top: 300px;font-size: 16px;font-weight: normal;text-transform: none; margin: 0 auto;border-radius: 3px;opacity: 0;}
+        .tip em{
+            font-style: normal;
+            text-align: center;
+        }
+        .tip span{
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            border: 7px solid transparent;
+            border-top-color: #2DCB70;
+            left: 30%;
+            margin-left: -3px;
+            bottom: -14px;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="jquery/jquery-1.12.3.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            var i=0;
+            var clone=$(".banner .img li").first().clone();
+            $(".banner .img").append(clone);
+            var size=$(".banner .img li").size();
+            for(var j=0;j<size-1;j++){
+                $(".banner .num").append("<li></li>");
+            }
+            $(".banner .num li").first().addClass("on");
+
+
+            /*鼠标划入圆点*/
+            $(".banner .num li").hover(function(){
+                var index=$(this).index();
+                i=index;
+                $(".banner .img").stop().animate({left:-index*550},500)
+                $(this).addClass("on").siblings().removeClass("on")
+            })
+            /*自动轮播*/
+            var t=setInterval(function(){
+                i++;
+                move()
+            },2000)
+            /*对banner定时器的操作*/
+            $(".banner").hover(function(){
+                clearInterval(t);
+            },function(){
+                t=setInterval(function(){
+                    i++;
+                    move()
+                },2000)
+            })
+            /*向左的按钮*/
+            $(".banner .btn_l").click(function(){
+                i--
+                move();
+            })
+            /*向右的按钮*/
+            $(".banner .btn_r").click(function(){
+                i++
+                move()
+            })
+
+            function move(){
+
+                if(i==size){
+                    $(".banner  .img").css({left:0})
+                    i=1;
+                }
+                if(i==-1){
+                    $(".banner .img").css({left:-(size-1)*550})
+                    i=size-2;
+                }
+                $(".banner .img").stop().animate({left:-i*550},500)
+
+                if(i==size-1){
+                    $(".banner .num li").eq(0).addClass("on").siblings().removeClass("on")
+                }else{
+                    $(".banner .num li").eq(i).addClass("on").siblings().removeClass("on")
+                }
+            }
+
+        })
+
+    </script>
+</head>
+<body>
+<div>
+    <div class="div1" ></div>
+    <div class="headerBox">
+        <div class="header"></div>
+        <div class="advsliderAddbox">
+            <div class="slider">
+                <div class="addDesBox" >
+                    <div class="AdDes">
+                        <h1 class="AdTOP">智慧创造财富</h1>
+                        <h3 class="AdTOP_h3">让我们用智慧垂钓</h3>
+                        <h3 class="AdTOP_h3"> 在世界恬乐的地方</h3>
+                    </div>
+                </div>
+                <div class="banner">
+                    <ul class="img">
+                        <li ><a href="#"><img src="images/Fumham.png"></a></li>
+                        <li ><a href="#"><img src="images/Greenland%20Place%20SE8.png"></a></li>
+                        <li><a href="#"><img src="images/Hendon%20Waterside%20NW9.png"></a></li>
+                        <li ><a href="#"><img src="images/Blackfriars%20Circus.png"></a></li>
+                    </ul>
+
+                    <ul class="num">
+                        <li ></li>
+                    </ul>
+                    <div class="btn btn_l" ><img src="images/arrow_left.png"></div>
+                    <div class="btn btn_r" ><img src="images/arrow_right.png"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cir"> </div>
+    <div class="FindProBox">
+        <div class="FindProBox">
+
+
+            <div class="row" id="FindProBoxTopic>
+                <div class="col-md-6 h2"  id=""> 找到梦想物业 <small>Find your DreamHouse</small></div>
+                   <div class="col-md-6 btn btn-default" id="moreFrobtn"><a href="#" role="button">查看更多物业</a></div>
+            </div>
+
+
+
+            </div>
+            <div class="box1">
+                <div class="link link-fro0 ">
+                    <span class="icon"></span>
+                    <a href="#" class="button" data-title="Aldgate Place 伦敦树2期 ">
+                        <span class="line line-top"></span>
+                        <span class="line line-left"></span>
+                        <span class="line line-right"></span>
+                        <span class="line line-bottom"></span>
+                        世界金融核心区超值物业
+                    </a>
+                </div>
+                <div class="link link-fro1 ">
+                    <span class="icon"></span>
+                    <a href="#" class="button" data-title="Camden 伦敦最文艺住宅 ">
+                        <span class="line line-top"></span>
+                        <span class="line line-left"></span>
+                        <span class="line line-right"></span>
+                        <span class="line line-bottom"></span>
+                        伦敦最文艺住宅
+                    </a>
+                </div>
+                <div class="link link-fro2 ">
+                    <span class="icon"></span>
+                    <a href="#" class="button" data-title="Putney Rise 豪宅区学区房">
+                        <span class="line line-top"></span>
+                        <span class="line line-left"></span>
+                        <span class="line line-right"></span>
+                        <span class="line line-bottom"></span>
+                        优质学区房
+                    </a>
+                </div>
+
+                <div class="link link-fro3 ">
+                    <span class="icon"></span>
+                    <a href="#" class="button" data-title="Putney Rise 豪宅区学区房">
+                        <span class="line line-top"></span>
+                        <span class="line line-left"></span>
+                        <span class="line line-right"></span>
+                        <span class="line line-bottom"></span>
+                        优质学区房
+                    </a>
+                </div>
+                <div class="link link-fro4 ">
+                    <span class="icon"></span>
+                    <a href="#" class="button" data-title="Putney Rise 豪宅区学区房">
+                        <span class="line line-top"></span>
+                        <span class="line line-left"></span>
+                        <span class="line line-right"></span>
+                        <span class="line line-bottom"></span>
+                        优质学区房
+                    </a>
+                </div>
+                <div class="link link-fro5 ">
+                    <span class="icon"></span>
+                    <a href="#" class="button" data-title="Putney Rise 豪宅区学区房">
+                        <span class="line line-top"></span>
+                        <span class="line line-left"></span>
+                        <span class="line line-right"></span>
+                        <span class="line line-bottom"></span>
+                        优质学区房
+                    </a>
+                </div>
+                <div class="tip">
+                    <em></em>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+
+
+
+
+    <script>
+        $(function(){
+            $(".link .button").hover(function(){
+                var title = $(this).attr("data-title");
+                $(".tip em").text(title);
+                var pos= $(this).offset().left;
+                var dis = ($(".tip").outerWidth()-$(this).outerWidth())/2;
+                var f = pos-dis;
+                $(".tip").css({"left":f+"px"}).animate({"top":195,"opacity":1},300);
+            },function(){
+                $(".tip").animate({"top":160,"opacity":0},300);
+            })
+        })
+
+        $(function() {
+            Slider.init({
+                target: $('.slider'),
+                time: 6000
+            });
+        })
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
